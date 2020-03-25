@@ -3,7 +3,31 @@
 
 {% block content %}
 
-<h1>Hello World!!</h1>
+</br>
+
+
+{% if zipcode %}
+		{{ zipcode }}
+{% endif %}
+
+{% if api %}
+		{% if api == "Error..." %}
+			There was an error, please try again...
+		{% else %}
+			<div class="jumbotron">
+			  <h1 class="display-4">{{ api.0.Category.Name }}  </h1>
+			  <p class="lead">Current {{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }}</p>
+
+			 	 {% if api.0.Category.Name == "Good" %}
+						<p>Air quality is good</p>
+				{% endif %}
+			</div>
+
+
+
+		{% endif %}
+{% endif %}
+
 
 {% endblock %}
 
