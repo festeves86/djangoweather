@@ -35,3 +35,16 @@ def home(request):
 
 def about(request):
 	return render(request, 'about.html',{})
+
+def sobre(request):
+	import requests
+
+	if request.method == "POST":
+	 		nome_pessoa = request.POST['nome_pessoa']
+	 		return render(request, 'sobre.html',{'nome_pessoa': nome_pessoa})
+	else:
+		return render(request, 'sobre.html',{})
+
+
+
+
